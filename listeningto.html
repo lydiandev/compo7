@@ -1,0 +1,72 @@
+---
+title: Listening To
+listeningToApp: true
+layout: null
+section-type: listening-to
+---
+<!-- {% raw %} -->
+<div class='app' ng-app='ListeningToApp' ng-controller='MainController' ng-init='getRecentTracks(recentTracks, displayData)'>
+    <div class="nav-custom"></div>
+    <ul class="nav nav-pills nav-justified"> 
+        <li ng-class="{active: displayData.showRecentTracks}" ng-click="getRecentTracks(recentTracks, displayData)"><a class="page-scroll" href="#listening-to">Recent Tracks</a></li>
+        <li ng-class="{active: !displayData.showRecentTracks}" ng-click="getTopArtists(topArtists, displayData)"><a class="page-scroll" href="#listening-to">Top Artists</a></li>
+    </ul>
+    <ul class='last-fm-list' ng-show="displayData.showRecentTracks && !displayData.connectError">
+        <li ng-repeat="track in recentTracks">
+            <div ng-cloak class='last-fm-list-item ng-cloak'>
+                <div class='album-art'>
+                    <img ng-cloak class='ng-cloak img-thumbnail album-art'
+                    alt='{{track.Artist}}-{{track.Album}}' ng-src='{{track.AlbumArtLocation}}'/>
+                </div>
+                <div ng-cloak class='ng-cloak track-info'>
+                    <h4 class='artist-name'>
+                        {{track.Artist}}
+                    </h4>
+                    <span class='field'>Track:</span> {{track.Name}}<br/>
+                    <span class='field'>Album:</span> {{track.Album}}<br/>
+                    <span class='field' ng-hide='track.IsNowPlaying'>Last Played:</span><span ng-class='{nowplaying: track.IsNowPlaying}'> {{track.LastPlayed}}</span> 
+                    <!-- Disabled until last.fm starts displaying music source information again -->
+                    <!--<span ng-class='{nowplaying: track.IsNowPlaying}' ng-show='track.IsNowPlaying'> from 
+			<a target='_blank' href='{{track.MusicServiceUrl}}'>{{track.MusicServiceName}}</a>
+		    </span>
+                    -->
+                    <br/>
+                </div>
+                <div class='clear'></div>
+            </div>
+        </li>
+    </ul>
+    <ul class='last-fm-list' ng-show="!displayData.showRecentTracks && !displayData.connectError">
+        <li ng-repeat="artist in topArtists">
+            <div ng-cloak class='last-fm-list-item ng-cloak'>
+                <div class='album-art'>
+                    <img ng-cloak class='ng-cloak img-thumbnail album-art'
+                    alt='{{track.Artist}}' ng-src='{{artist.ArtistImageLocation}}'/>
+                </div>
+                <div ng-cloak class='ng-cloak track-info'>
+                    <h4 class='artist-name'>
+                        {{artist.Name}}
+                    </h4>
+                    <span class='field'>Rank:</span> {{artist.Rank}}<br/>
+                    <span class='field'>Play Count:</span> {{artist.PlayCount}}<br/>
+                </div>
+                <div class='clear'></div>
+            </div>
+        </li>
+    </ul>
+    <div ng-cloak class='ng-cloak last-fm-text text-center' ng-show="displayData.hideSpinner">
+	Music data courtesy of
+	<a href='http://www.last.fm' target='_blank'>
+	   <img src='/img/lastfm_grey_small.gif'/>
+        </a>
+    </div>
+   <div ng-cloak class="ng-cloak spinner" ng-hide="displayData.hideSpinner">
+	<i class="fa fa-spinner fa-spin loading-label"></i>Loading
+   </div>
+   <div ng-cloak class="ng-cloak error" ng-show="displayData.connectError">
+	Cannot connect to the Last.fm Service to access music data.<br/>
+	Check the <a href='http://status.last.fm'>Last.fm Status Site</a> for more information.
+   </div>
+</div>
+<!-- {% endraw %} -->
+

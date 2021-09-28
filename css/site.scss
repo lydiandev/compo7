@@ -1,0 +1,127 @@
+---
+# Front matter for jekyll to read sass file
+---
+
+hr {	
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+
+body {
+   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+.reset-list-align {
+  ul {
+   text-align: left; 
+  }
+  ol {
+   text-align: left;
+  }
+}
+
+ul.social-buttons {
+   text-align: center;
+}
+
+.fourofour {
+    padding-bottom: 20px;
+    max-width: 50%;
+} 
+
+.pagination {
+    display: block;
+    text-align: center;
+}
+
+.table {
+   border-collapse: collapse;
+   border: 2px solid black;
+}
+
+blockquote {
+  background: #f0f0f0;
+  border-left: 10px solid #a9a9a9;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D";
+  color: black;
+}
+
+blockquote:before {
+  color: #a9a9a9;
+  content: open-quote;
+  font-size: 4em;
+  font-style: italic;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+
+blockquote p {
+  display: inline;
+}
+
+.code-img { 
+  display: inline-block !important;
+}
+
+.code-heading {
+  display: inline;
+}
+
+.post-footer-wordcount {
+  color: #777;
+}
+
+.post-footer-nav {
+  padding-bottom: 10px; 
+  i {
+    vertical-align: middle; 
+  }
+}
+
+
+.img-me {
+  border: 2px solid #f1f1f1 !important;
+}
+
+.intro-text-container {
+  position: absolute;
+  left-margin: auto;
+  right-margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.spacer {
+  margin-bottom: 60px;
+}
+
+.content-section {
+  padding-top: 25px; 
+}
+
+.well {
+ color: black;
+}
+
+.footnotes > ol {
+ list-style-position: outside;
+}
+
+.modern-agile {
+  border: 0 !important;
+  max-width: 30% !important;
+  height: auto !important;
+}
+
+.subtitle {
+  margin-top: -20px;
+  color: darkgray;
+  font-style: italic;
+}

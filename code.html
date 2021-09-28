@@ -1,0 +1,23 @@
+---
+layout: null
+section-type: code
+title: Code
+---
+## Code
+Here are a few projects I have worked on in my free time:
+<br/>
+
+{% for project in site.projects %}
+<h4>
+   <a href="{{project.url}}">{{project.name}}</a>
+   <a href="{{project.ci_url}}">
+      <img class="code-img" src="{{project.build_image}}" />
+   </a>
+</h4>
+<p>
+   {{project.description | markdownify}}
+</p>
+{% endfor %}
+
+ If you'd like to see some other things I'm working on you
+ can view my [github account](http://www.github.com/asciamanna).
